@@ -1,0 +1,19 @@
+{
+  "name": "echodeck",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "app/client",
+    "app/server",
+    "app/electron"
+  ],
+  "scripts": {
+    "setup": "npm install && docker-compose -f docker/docker-compose.yml up -d",
+    "docker:up": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  }
+}
