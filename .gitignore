@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+out/
+
+# Electron
+release/
+app/dist/
+
+# Docker
+docker/data/
+docker/pgdata/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
