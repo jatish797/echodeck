@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "app/client",
-    "app/server",
-    "app/electron"
+    "apps/desktop",
+    "apps/server",
+    "packages/shared"
   ],
   "scripts": {
-    "setup": "npm install && docker-compose -f docker/docker-compose.yml up -d",
-    "docker:up": "docker-compose -f docker/docker-compose.yml up -d",
-    "docker:down": "docker-compose -f docker/docker-compose.yml down"
+    "setup": "npm install && docker-compose -f infrastructure/docker/docker-compose.yml up -d",
+    "docker:up": "docker-compose -f infrastructure/docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f infrastructure/docker/docker-compose.yml down",
+    "dev:desktop": "npm run dev --workspace=apps/desktop",
+    "dev:server": "npm run dev --workspace=apps/server",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:desktop\"",
+    "build:desktop": "npm run build --workspace=apps/desktop",
+    "build:server": "npm run build --workspace=apps/server",
+    "build": "npm run build --workspaces"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
